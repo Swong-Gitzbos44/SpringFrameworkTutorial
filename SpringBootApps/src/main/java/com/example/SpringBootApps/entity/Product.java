@@ -27,6 +27,17 @@ public class Product {
 
     // Constructors, getters and setters, and other methods...
 
+    // Default constructor (required by Hibernate)
+    public Product() {
+    }
+
+    // Parameterized constructor
+    public Product(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     // Getters
     public long getId() {
         return id;

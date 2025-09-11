@@ -20,13 +20,20 @@ public class ProductController {
     }
 
     // Create a new product
-    @PostMapping("/product")
+    @PostMapping("/products")
     public ResponseEntity<Product> saveProduct(@RequestBody Product product) {
         Product newProduct = productService.saveProduct(product);
         return ResponseEntity.ok(newProduct);
     }
 
     // Get all products
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getAllProducts() {
+        List<Product> products = productService.getAllProducts();
+        return ResponseEntity.ok(products);
+    }
+
+    // Get product by ID
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Optional<Product> product = productService.getProductById(id);
